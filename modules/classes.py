@@ -1,6 +1,8 @@
 """
-    All the classes that are used across the biox_macguffins codebase
+    Classes that are used across the FastQ Toolbox
 """
+
+# TODO might not need this
 
 
 class Primer:
