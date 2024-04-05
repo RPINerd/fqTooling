@@ -8,8 +8,6 @@ import argparse
 
 from Bio import SeqIO
 
-import assembly
-
 
 def main(args) -> None:
     window_size = int(args.window)
@@ -49,24 +47,7 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--verbose", help="Lots of status messages", action="store_true")
     parser.add_argument("-o", "--output", help="Designates a user-defined output file. (Default prints to stdout)")
     parser.add_argument("-w", "--window", help="Size of the sliding window (Default = 30bp)", default=30)
-    parser.add_argument("-a", "--assembly", help="Perform assembly instead of window slicing.", action="store_true")
     parser.add_argument("-s", "--step", help="How many steps to take per window iteration", default=1)
     args = parser.parse_args()
 
-    if args.assembly:
-        s = assembly.SequenceAssembler()
-
-        # read data
-        with open(args.fasta) as data:
-            s.read_fasta(data)
-
-        # run assembly
-        s.assemble()
-
-        # access path and resulting sequence
-
-        print(s.path)
-        print(s.sequence)
-
-    else:
-        main(args)
+    main(args)
