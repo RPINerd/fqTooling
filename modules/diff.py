@@ -5,6 +5,8 @@
     Messy and slow..
 """
 
+#! This is not actually a diff, need to just re-write this to be a proper diff
+
 import sys
 
 from Bio import SeqIO

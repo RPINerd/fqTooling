@@ -3,25 +3,53 @@
 
     A modular toolbox of python scripts for working with FastQ files.
 
-    fqTooling.py is the entry point for running the varous scripts or accessing the TUI. 
+    fqTooling.py is the entry point for accessing the TUI and launching the various tools.
+
 """
 
-import argparse
-import os
-import sys
+import rich
 
 
-def parse_args() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser()
-    args = parser.parse_args()
-    return args
+def inquire() -> str:
+    """
+    Present an interactive menu to the user that lists the available tools to choose from
+    """
+
+    questions = [
+        {
+            "type": "list",
+            "name": "tool",
+            "message": "What tool would you like to use?",
+            "choices": [
+                "Window Shopper",
+                "FastQC Pipeline",
+                "FastQ Trimmer",
+                "FastQ Splitter",
+                "FastQ Merger",
+                "FastQ Stats",
+                "FastQ QC",
+                "FastQ Interleave",
+                "FastQ Deinterleave",
+                "FastQ Reverse Complement",
+            ],
+        }
+    ]
+
+    answers = prompt(questions)
+    tool = answers["tool"]
+
+    return tool
 
 
-def main(args) -> None:
+def main() -> None:
+    """
+    Main entry point for the FastQ Toolbox
+    """
 
-    return
+    tool = inquire()
+    print(f"Selected tool: {tool}")
 
 
 if __name__ == "__main__":
-    args = parse_args()
-    main(args)
+    print("Welcome to the FastQ Toolbox!")
+    main()

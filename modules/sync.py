@@ -1,4 +1,7 @@
-import sys
+"""
+    Given R1 and R2 of a pair of fastq reads, sync them up so the ID's all align
+    
+"""
 
 from Bio import SeqIO
 
