@@ -1,0 +1,11 @@
+#tool_tabs {
+    dock: left;
+    width: 85vh;
+    height: 100%;
+    color: #122d42;
+    background: dodgerblue;
+}
+
+#tool_content {
+    background: rgb(110, 80, 80)
+}
